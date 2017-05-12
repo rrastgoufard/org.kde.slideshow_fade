@@ -34,6 +34,7 @@ ColumnLayout {
     property int cfg_FillMode
     property var cfg_SlidePaths: ""
     property int cfg_SlideInterval: 0
+    property int cfg_FadeDuration: 120
     signal restoreIndex(int count)
 
     function saveConfig() {
@@ -64,6 +65,7 @@ ColumnLayout {
     property int hoursIntervalValue: Math.floor(cfg_SlideInterval / 3600)
     property int minutesIntervalValue: Math.floor(cfg_SlideInterval % 3600) / 60
     property int secondsIntervalValue: cfg_SlideInterval % 3600 % 60
+    property int fadeDurationValue: cfg_FadeDuration
 
     //Rectangle { color: "orange"; x: formAlignment; width: formAlignment; height: 20 }
 
@@ -168,6 +170,7 @@ ColumnLayout {
                 onHoursIntervalValueChanged: hoursInterval.value = root.hoursIntervalValue
                 onMinutesIntervalValueChanged: minutesInterval.value = root.minutesIntervalValue
                 onSecondsIntervalValueChanged: secondsInterval.value = root.secondsIntervalValue
+                onFadeDurationValueChanged: fadeDuration.value = root.fadeDurationValue
             }
             //FIXME: there should be only one spinbox: QtControls spinboxes are still too limited for it tough
             RowLayout {
@@ -231,6 +234,31 @@ ColumnLayout {
                     text: i18nd("plasma_applet_org.kde.image","Seconds")
                 }
             }
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: units.largeSpacing / 2
+                QtControls.Label {
+                    Layout.minimumWidth: formAlignment - units.largeSpacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    horizontalAlignment: Text.AlignRight
+                    text: "Fade Duration:"
+                }
+                QtControls.SpinBox {
+                    id: fadeDuration
+                    anchors.verticalCenter: parent.verticalCenter
+                    Layout.minimumWidth: textMetrics.width + units.gridUnit
+                    width: units.gridUnit * 3
+                    decimals: 0
+                    value: root.fadeDurationValue
+                    minimumValue: 1
+                    maximumValue: 10000
+                    onValueChanged: cfg_FadeDuration = fadeDuration.value
+                }
+                QtControls.Label {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: i18nd("plasma_applet_org.kde.image","Milliseconds")
+                }
+            }            
             QtControls.ScrollView {
                 Layout.fillHeight: true;
                 Layout.fillWidth: true

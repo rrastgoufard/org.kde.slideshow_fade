@@ -8,7 +8,7 @@
         ],
         "Category": "",
         "Icon": "folder-image",
-        "Id": "org.kde.slideshow",
+        "Id": "org.kde.slideshow_fade",
         "License": "GPLv2+",
         "MimeTypes": [
             "image/jpeg",

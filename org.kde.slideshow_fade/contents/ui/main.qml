@@ -177,7 +177,7 @@ Item {
                 target: currentImage
                 from: 0
                 to: 1
-                duration: units.longDuration
+                duration: wallpaper.configuration.FadeDuration
             }
             OpacityAnimator {
                 id: fadeOtherAnimator
@@ -186,7 +186,7 @@ Item {
                 from: 1
                 // cannot disable an animation individually, so we just fade from 1 to 1
                 to: enabled ? 0 : 1
-                duration: units.longDuration
+                duration: wallpaper.configuration.FadeDuration
             }
         }
         ScriptAction {

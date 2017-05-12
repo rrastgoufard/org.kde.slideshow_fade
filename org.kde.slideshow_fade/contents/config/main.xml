@@ -26,6 +26,10 @@
       <label>Interval between slides</label>
       <default>10</default>
     </entry>
+    <entry name="FadeDuration" type="int">
+      <label>Fade duration between slides</label>
+      <default>1000</default>
+    </entry>
   </group>
 
 </kcfg>
