@@ -26,3 +26,8 @@ In order to use this, copy the entire folder
 `org.kde.slideshow_fade` to 
 `/usr/share/plasma/wallpapers/` and then change
 your wallpaper type to Fading Slideshow.
+You may need to run 
+`chmod a+rx -R org.kde.slideshow_fade`
+in order to set the proper permissions if you 
+download this repository as a zip file from 
+github.
